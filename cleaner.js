@@ -6,13 +6,17 @@ function reflex_agent(location, state) {
 
 // función para ensuciar una habitación de forma aleatoria
 function dirt_room(rooms) {
-  var randomRoom = Math.floor(Math.random() * 2) + 1;
+  var randomRoom = Math.floor(Math.random() * 3) + 1;
+  if (randomRoom > 2) {
+    console.log(rooms);
+    return rooms;
+  }
   const cleanRooms = rooms.filter((room) => room[randomRoom] !== 'DIRTY');
-  rooms= cleanRooms;
+  rooms = cleanRooms;
   if (cleanRooms.length > 0) {
     cleanRooms[randomRoom] = "DIRTY";
   }
-  console.log(rooms)
+
   return cleanRooms;
 }
 
